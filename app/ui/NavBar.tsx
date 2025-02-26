@@ -1,5 +1,5 @@
 import React from 'react'
-import { lustina } from "./font";
+import { lustina } from "../lib/font";
 import { usePathname } from "next/navigation";
 import clsx from 'clsx';
 import Image from 'next/image';
