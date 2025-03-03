@@ -3,10 +3,26 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from './ui/NavBar';
 import Search from "./ui/Search";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Result from "./ui/Result";
+import Ending from "./ui/Ending";
+//import { Suspense } from "react";
 export default function Dashboard() {
   const [search,setSearch]=useState('');
+  const [result,setResult]=useState('All');
+  const reference=useRef<HTMLDivElement>(null);
+  
+  function ScrollToResult()
+  {
+    if(reference.current)
+    {
+      reference.current.scrollIntoView({
+        behavior:'smooth',
+        block:'nearest',
+        inline:'nearest'
+      });
+    }
+  }
   return (
     <>
     <div className="lg:mx-8 mx-4 flex h-screen ">
@@ -36,12 +52,17 @@ export default function Dashboard() {
         <h1 className="pt-9">Awesome Exercises You</h1>
         <h1>Should know</h1>
       </div>
-      <Search inputSearch={search} handleSearch={(value)=>{
+      <Search inputSearch={search} getResult={(value)=>setResult(value)} handleSearch={(value)=>{
         setSearch(value);
-      }}></Search>
+      }}
+      ScrollResult={ScrollToResult}
+      ></Search>
+    </div>
+    <div ref={reference}>
+      <Result query={result}></Result>
     </div>
     <div>
-      <Result></Result>
+      <Ending/>
     </div>
     </>
   );

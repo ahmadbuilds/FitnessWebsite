@@ -5,7 +5,7 @@ import { lustina } from '../lib/font';
 import Image from 'next/image';
 import CardsPagination from './CardsPagination';
 import CardSkeleton from '../Skeletons/CardSkeleton';
-const Card = () => {
+const Card = ({Result,ScrollResult}:{Result:(value:string)=>void,ScrollResult:()=>void}) => {
   const [BodyParts,setBodyParts]=useState([]);
   const [currentPage,setCurrentPage]=useState(1);
   const [loading,setLoading]=useState(true);
@@ -16,7 +16,7 @@ const Card = () => {
         const body=await fetchBodyPartList();
         const parsed=body ? JSON.parse(body):[];
         parsed.unshift('All');
-        console.log(parsed.length);
+        //console.log(parsed.length);
         setBodyParts(parsed);
       }catch(error)
       {
@@ -44,7 +44,9 @@ const Card = () => {
       {
         filteredCards.map((pro)=>{
           return(
-            <div key={pro} className='bg-white px-10 py-10 sm:px-14 sm:py-14 flex flex-col gap-10 items-center justify-center border-t-8 border-red-500 rounded-sm'>
+            <div key={pro} className='cursor-pointer bg-white px-10 py-10 sm:px-14 sm:py-14 flex flex-col gap-10 items-center justify-center border-t-8 border-red-500 rounded-sm'
+            onClick={()=>{Result(pro);ScrollResult()}}
+            >
               <Image
                 src={'/gym.png'}
                 width={50}
