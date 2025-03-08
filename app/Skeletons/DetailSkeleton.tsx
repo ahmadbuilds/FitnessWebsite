@@ -2,7 +2,7 @@
 import React from 'react';
 const DetailSkeleton = () => {
     return (
-        <div className='block bg-red-500 lg:flex lg:gap-10 mx-5 my-20 w-[calc(100%-2.5rem-10px)] h-screen'>
+        <div className='block lg:flex lg:gap-10 mx-5 my-20 w-[calc(100%-2.5rem-10px)] h-screen'>
             <div className='p-5 lg:w-1/2 flex justify-center'>
                 <div className='w-[650px] h-[650px] bg-gray-300 animate-pulse'></div>
             </div>
