@@ -6,11 +6,6 @@ import DetailSkeleton from '@/app/Skeletons/DetailSkeleton';
 import Image from 'next/image';
 import { lustina } from '@/app/lib/font';
 import VideosCard from '@/app/ui/VideosCard';
-import { Metadata } from 'next';
-export const metadata: Metadata = {
-    title: "Exercises Details",
-    description: "A fitness website just for showing the desired Workout",
-  };
 const Page =(props:{params:Promise<{id:string}>}) => {
     const [result,setResult]=useState<ExerciseID | null>(null);
     const [loading,setLoading]=useState(true);
