@@ -31,7 +31,8 @@ const Result = ({query}:{query:string}) => {
     <div className='m-4 p-4'>
       <h1 className={`${lustina.className} antialiased text-5xl font-bold`}>Showing Results</h1>
       {
-        loading?<ExercisesSkeleton/>:
+        loading?(<ExercisesSkeleton/>):
+        ResponseResult.length==0?(<p className='text-lg font-semibold text-center'>Result not Found.</p>):
         <div className='my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  items-stretch'>
           {
             ResponseResult.map((pro)=>{

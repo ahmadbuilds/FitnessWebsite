@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
         hostname: 'v2.exercisedb.io',
       },
     ],
+    domains:['i.ytimg.com'],
   },
 };
 
