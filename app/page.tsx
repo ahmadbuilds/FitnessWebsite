@@ -33,7 +33,7 @@ export default function Dashboard() {
             <h1 className="text-4xl font-bold">Sweet, Smile</h1>
             <h1 className="text-4xl font-bold">And Repeat</h1>
             <p className="text-base">Check out the most effective exercises personalized to you.</p>
-            <Link href={'/Exercises'} className="bg-red-500 hover:bg-white hover:ring-1 hover:ring-red-500 hover:rounded-sm hover:text-black inline-block text-white px-4 py-2 rounded-sm border-none outline-none">Explore Exercises</Link>
+            <Link href={'/Exercise'} className="bg-red-500 hover:bg-white hover:ring-1 hover:ring-red-500 hover:rounded-sm hover:text-black inline-block text-white px-4 py-2 rounded-sm border-none outline-none">Explore Exercises</Link>
             <p className="hidden lg:block mx-5 mt-0 items-center text-[220px] font-semibold text-red-100">Exercise</p>
         </div>
       </div>
